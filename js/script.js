@@ -1,3 +1,6 @@
+import createCard from './module/createCard.js';
+import favoriteStorage from './module/favoriteStorage.js';
+
 const loadingIndicator = document.getElementById("loading");
 const cardContainer = document.querySelector("#cards-container");
 const API = "https://makeup-api.herokuapp.com/api/v1/products.json";
@@ -16,34 +19,12 @@ async function fetchData(url) {
   }
 }
 
-function createCard(product) {
-  return `
-    <div class="card">
-      <div class="card-top">
-        <img
-          src="${product.image_link || "./assets/no-image.png"}"
-          onerror="this.onerror=null; this.src='./assets/no-image.png';"
-          alt="${product.name}"
-        />
-      </div>
-      <div class="card-info">
-        <h3>${product.name}</h3>
-        <h3>${product.brand}</h3>
-        <p class="price">${product.price_sign} ${product.price}</p>
-        <p class="price-credit">Moeda: ${product.currency}</p>
-      </div>
-      <div class="card-like">
-        <i class="fa-solid fa-heart"></i>
-      </div>
-    </div>
-  `;
-}
-
 async function displayProducts() {
   try {
     loadingIndicator.style.display = "block";
 
     const products = await fetchData(API);
+    //console.log(products);
 
     let allCards = "";
 
@@ -54,6 +35,8 @@ async function displayProducts() {
     }
 
     cardContainer.innerHTML = allCards;
+
+    favoriteStorage();
   } catch (error) {
     console.error(error);
   } finally {

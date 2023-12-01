@@ -12,7 +12,7 @@ class CustomHeader extends HTMLElement {
           </button>
         </form>
         <div class="favorite-menu">
-          <i class="fa-solid fa-heart"></i>Favorito
+        <i class="fa-solid fa-heart-circle-check"></i>Favorito
         </div>
         <div class="cart">
           <span><i class="fa-solid fa-bag-shopping"></i></span>
