@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap");
+:root {
+  --primary-aqua: #158a8a;
+  --second-aqua: #099a9a;
+  --primary-gray: #313131;
+  --second-gray: #5f5f5f;
+  --ligth-gray: #5f5f5f;
+  --max-ligth-gray: #c7c7c7;
+  --color-white: #ffffff;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+  gap: 10px;
+}
+.nav-header {
+  background-color: var(--primary-aqua);
+  color: var(--color-white);
+}
+.nav-header i {
+  margin-right: 5px;
+}
+#search button {
+  position: relative;
+  padding: 4px;
+  right: 38px;
+  border: none;
+  background-color: var(--color-white);
+  color: var(--max-ligth-gray);
+}
+#search input {
+  padding: 5px;
+  border: 1px solid var(--max-ligth-gray);
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--color-white);
+  border-radius: 50px;
+}
+.avatar i {
+  margin: 0;
+}
+.stl-primary {
+  padding: 11px;
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  color: var(--color-white);
+  background-color: var(--primary-aqua);
+}
+.stl-line {
+  padding: 11px;
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  color: var(--primary-aqua);
+  border: 1px solid var(--primary-aqua);
+}
+.filter {
+  border-radius: 20px;
+}
+
+.box-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card {
+  position: relative;
+  background-color: var(--color-white);
+  width: 170px;
+  height: 240px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px 3px rgba(0, 0, 0, 0.2);
+}
+.card h3,
+.card .qualification,
+.card p {
+  margin-top: 4px;
+}
+.card-top img {
+  width: 100%;
+}
+.card-like i {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: red;
+  font-size: 30px;
+}
+.price span {
+  font-size: 10px;
+  position: absolute;
+}
+.price-credit {
+  color: var(--max-ligth-gray);
+  font-size: 10px;
+}
+.qualification {
+  display: flex;
+  gap: 5px;
+}
+.ellipse {
+  background-color: var(--max-ligth-gray);
+  width: 5px;
+  height: 5px;
+  border-radius: 2.42px;
+}
+.ellipse-full {
+  background-color: #ffd646;
+  width: 5px;
+  height: 5px;
+  border-radius: 2.42px;
+}
