@@ -52,8 +52,8 @@ export default function createViewProduct(product) {
           </h4>
         </div>
         <div class="container-btn">
-          <button class="stl-primary" type="button">Comprar agora</button>
-          <button class="stl-line font-small" type="button">
+          <button class="stl-primary open-modal" type="button">Comprar agora</button>
+          <button class="stl-line font-small open-modal" type="button">
             Adicionar a sacola
           </button>
         </div>

@@ -56,11 +56,23 @@ async function displayAllProducts() {
           pageContainer.style.display = "block";
 
           const btnBack = document.querySelector('[data-button="back"]');
-          console.log(btnBack);
+          const btnModal = document.querySelectorAll(".open-modal");
+          const modal = document.getElementById("modal");
+          const closeButton = modal.querySelector(".close");
           if (btnBack) {
             btnBack.addEventListener("click", () => {
               cardContainer.style.display = "flex";
               pageContainer.style.display = "none";
+            });
+          }
+          for (const btn of btnModal) {
+            btn.addEventListener("click", () => {
+              modal.style.display = "block";
+            });
+          }
+          if (closeButton) {
+            closeButton.addEventListener("click", () => {
+              modal.style.display = "none";
             });
           }
         }
