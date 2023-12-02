@@ -1,0 +1,22 @@
+.container-footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+footer a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+footer i {
+  padding: 10px;
+  font-size: 30px;
+}
+footer,
+footer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer {
+  gap: 30px;
+}

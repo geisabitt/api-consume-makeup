@@ -1,0 +1,30 @@
+[data-favorite-menu] {
+  position: relative;
+}
+[data-favorite-menu] .favorite-dropdown {
+  display: none;
+}
+[data-favorite-menu]:hover .favorite-dropdown,
+[data-favorite-menu].active .favorite-dropdown {
+  display: block;
+}
+
+.favorite-dropdown {
+  position: absolute;
+  padding-top: 20px;
+  z-index: 10;
+  background-color: var(--primary-aqua);
+}
+.favorite-dropdown img {
+  width: 30px;
+  border-radius: 50%;
+}
+.favorite-item {
+  min-width: 250px;
+  display: flex;
+  padding: 5px 10px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  border: 1px solid var(--color-white);
+}

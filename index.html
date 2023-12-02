@@ -12,14 +12,98 @@
     <script defer type="module" src="./js/script.js"></script>
     <script defer src="./js/class/customHeader.js"></script>
     <script defer src="./js/class/customFooter.js"></script>
+    <script defer src="./js/class/customFooter2.js"></script>
     <title>Loja - Makeup Api</title>
   </head>
   <body>
-    <custom-header></custom-header>
+    <div class="container-fluid bg-primary">
+      <nav class="container">
+        <div class="menu"><i class="fa-solid fa-bars"></i></div>
+        <div>Loja</div>
+        <form id="search">
+          <input type="text" />
+          <button type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div data-favorite-menu class="favorite-menu">
+          <span><i class="fa-solid fa-heart-circle-check"></i>Favorito</span>
+          <ul class="favorite-dropdown"></ul>
+        </div>
+        <div class="cart">
+          <span><i class="fa-solid fa-bag-shopping"></i></span>
+          Sacola
+        </div>
+        <div class="avatar"><i class="fa-solid fa-user"></i></div>
+      </nav>
+    </div>
+    <!-- <custom-header></custom-header> -->
     <div id="loading">
       <i class="fa-solid fa-spinner fa-spin"></i> Carregando...
     </div>
+    <section id="product-container" class="container">
+      <!-- <div id="${product.id}" class="view-product">
+        <h2>${product.name}</h2>
+        <div class="product-info">
+          <div class="product-images">
+            <div class="img-icons">
+              <img src="${product.image_link || "./assets/no-image.png"}"
+              onerror="this.onerror=null; this.src='./assets/no-image.png';"
+              alt="${product.name}"/> <img src="${ product.image_link ||
+              "./assets/no-image.png" }" onerror="this.onerror=null;
+              this.src='./assets/no-image.png';" alt="${product.name}"/> <img
+              src="${product.image_link || "./assets/no-image.png"}"
+              onerror="this.onerror=null; this.src='./assets/no-image.png';"
+              alt="${product.name}"/> <img src="${ product.image_link ||
+              "./assets/no-image.png" }" onerror="this.onerror=null;
+              this.src='./assets/no-image.png';" alt="${product.name}"/>
+            </div>
+            <div class="img-focus">
+              <img src="${product.image_link || "./assets/no-image.png"}"
+              onerror="this.onerror=null; this.src='./assets/no-image.png';"
+              alt="${product.name}"/>
+            </div>
+          </div>
+          <div class="product-cta">
+            <div class="header-cta">
+              <h2>${product.brand}</h2>
+              <h5>${product.product_type}</h5>
+            </div>
+            <div class="product-variation">
+              ${productColor(product.product_colors)}
+            </div>
+            <div class="product-price">
+              <h3>
+                <span>${product.price_sign}:</span> ${product.price}
+                <span class="price-currency">Moeda: ${product.currency}</span>
+              </h3>
+              <h4 class="price-credit">
+                3x de ${product.price_sign} ${(product.price / 3).toFixed(2)}
+                sem juros
+              </h4>
+            </div>
+            <div class="container-btn">
+              <button class="stl-primary" type="button">Comprar agora</button>
+              <button class="stl-line font-small" type="button">
+                Adicionar a sacola
+              </button>
+            </div>
+          </div>
+        </div>
+        <button data-button="back" class="stl-primary font-small" type="button">
+          <i class="fa-solid fa-arrow-left font-small"></i> Voltar
+        </button>
+      </div> -->
+    </section>
     <section id="cards-container" class="container"></section>
-    <custom-footer></custom-footer>
+
+    <!-- <custom-footer></custom-footer> -->
+    <custom-footer2
+      nameFigma="Design credits "
+      linkFigma="https://www.figma.com/file/J3jbEo24N570nBXIzjnTso/Budega-(E-commerce)-%F0%9F%9B%92-(Community)?type=design&node-id=112-449&mode=design&t=vQbvEpvjPPeTapl3-0"
+      nameCopy="Developer Geisa Bittencourt "
+      linkLinkedin="https://linkedin.com/in/geisabittencourt"
+      linkGithub="https://linkedin.com/in/geisabittencourt"
+    ></custom-footer2>
   </body>
 </html>

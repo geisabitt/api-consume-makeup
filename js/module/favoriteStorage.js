@@ -12,10 +12,12 @@ export default function favoriteStorage() {
       const productId = card.getAttribute("id");
       const productName = card.querySelector("h3").textContent;
       const productImage = card.querySelector("img").getAttribute("src");
+      const productApiUrl = card.getAttribute("data-api");
 
       const data = {
         productName,
         productImage,
+        productApiUrl,
       };
 
       const key = productId;
