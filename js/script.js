@@ -22,12 +22,56 @@ async function fetchData(url) {
   }
 }
 
+function displayProductDetails(event) {
+  const card = event.target.closest(".card");
+  if (card) {
+    const productId = card.getAttribute("id");
+    const apiId = `https://makeup-api.herokuapp.com/api/v1/products/${productId}.json`;
+    fetchProductDetails(apiId);
+  }
+}
+
+async function fetchProductDetails(apiId) {
+  try {
+    const getProductId = await fetchData(apiId);
+    const createPage = createViewProduct(getProductId);
+
+    pageContainer.innerHTML = createPage;
+    cardContainer.style.display = "none";
+    pageContainer.style.display = "block";
+
+    const btnBack = document.querySelector('[data-button="back"]');
+    if (btnBack) {
+      btnBack.addEventListener("click", () => {
+        cardContainer.style.display = "flex";
+        pageContainer.style.display = "none";
+      });
+    }
+
+    const btnModal = document.querySelectorAll(".open-modal");
+    const modal = document.getElementById("modal");
+    const closeButton = modal.querySelector(".close");
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+    }
+
+    btnModal.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function displayAllProducts() {
   try {
     loadingIndicator.style.display = "block";
 
     const products = await fetchData(API);
-    console.log(products[60]);
     let allCards = "";
 
     for (let i = 50; i < products.length && i < CARD_LIMIT; i++) {
@@ -42,46 +86,14 @@ async function displayAllProducts() {
     favoriteMenu();
 
     const btnProduct = document.querySelectorAll('[data-button="details"]');
-    for (const item of btnProduct) {
-      item.addEventListener("click", async (event) => {
-        const card = event.target.closest(".card");
-        if (card) {
-          const productId = card.getAttribute("id");
-          const apiId = `https://makeup-api.herokuapp.com/api/v1/products/${productId}.json`;
-          const getProductId = await fetchData(apiId);
-          const createPage = createViewProduct(getProductId);
-
-          pageContainer.innerHTML = createPage;
-          cardContainer.style.display = "none";
-          pageContainer.style.display = "block";
-
-          const btnBack = document.querySelector('[data-button="back"]');
-          const btnModal = document.querySelectorAll(".open-modal");
-          const modal = document.getElementById("modal");
-          const closeButton = modal.querySelector(".close");
-          if (btnBack) {
-            btnBack.addEventListener("click", () => {
-              cardContainer.style.display = "flex";
-              pageContainer.style.display = "none";
-            });
-          }
-          for (const btn of btnModal) {
-            btn.addEventListener("click", () => {
-              modal.style.display = "block";
-            });
-          }
-          if (closeButton) {
-            closeButton.addEventListener("click", () => {
-              modal.style.display = "none";
-            });
-          }
-        }
-      });
-    }
+    btnProduct.forEach((item) => {
+      item.addEventListener("click", displayProductDetails);
+    });
   } catch (error) {
     console.error(error);
   } finally {
     loadingIndicator.style.display = "none";
   }
 }
+
 displayAllProducts();

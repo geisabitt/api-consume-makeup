@@ -8,17 +8,13 @@ export default function favoriteMenu() {
       allFavorites.push({ key, favorite });
     });
 
-    console.log(allFavorites);
-
     allFavorites.forEach((favorite) => {
-      console.log(favorite.key);
       let cards = document.querySelectorAll(".card");
 
       cards.forEach((card) => {
         const cardID = card.getAttribute("id");
 
         if (cardID === favorite.key) {
-          console.log(card);
           const favoriteHeart = card.querySelector(".fa-heart");
           favoriteHeart.classList.add("colorHeart");
         }
@@ -27,14 +23,14 @@ export default function favoriteMenu() {
 
     let favoriteItemsHTML = "";
 
-    allFavorites.forEach((favorite) => {
+    allFavorites.forEach((item) => {
+      const { productName, productImage } = item.favorite;
+      console.log(productName, productImage);
       favoriteItemsHTML += `<li class="favorite-item">
-          ${favorite.favorite.productName} <img src="${
-        favorite.favorite.productImage || "./assets/no-image.png"
+          ${productName} <img src="${
+        productImage || "./assets/no-image.png"
       }" onerror="this.onerror=null;
-          this.src='./assets/no-image.png';" alt="${
-            favorite.favorite.productName
-          }" />
+          this.src='./assets/no-image.png';" alt="${productName}" />
         </li>`;
     });
 
